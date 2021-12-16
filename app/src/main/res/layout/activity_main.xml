@@ -55,35 +55,59 @@
         app:layout_constraintVertical_bias="0.788" />
 
     <Button
-        android:id="@+id/btLimpiar"
-        android:onClick="limpiarCajas"
+        android:id="@+id/btListar"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#15D12E"
-        android:text="Limpiar"
+        android:text="Listar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintHorizontal_bias="0.812"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
+        app:layout_constraintVertical_bias="0.325" />
 
     <Button
         android:id="@+id/btBorrar"
+        android:onClick="borrarLibro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#15D12E"
         android:text="Borrar"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="222dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
 
     <Button
-        android:id="@+id/btAceptar"
+        android:id="@+id/btInsertar"
+        android:onClick="insertarLibro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#15D12E"
-        android:text="Aceptar"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="53dp" />
+        android:text="Insertar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.127" />
+
+    <Button
+        android:id="@+id/btConsultar"
+        android:onClick="ConsultarLibro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#15D12E"
+        android:text="Consultar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.127" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
