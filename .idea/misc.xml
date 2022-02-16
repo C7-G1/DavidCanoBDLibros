@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/DAM2A-06/DavidCanoBDLibros/app/src/main/res/layout/activity_main.xml" value="0.2755208333333333" />
-        <entry key="..\:/Users/DAM2A-06/DavidCanoBDLibros/app/src/main/res/layout/activity_ver_libros.xml" value="0.20925925925925926" />
+        <entry key="..\:/Users/DAM2A-06/DavidCanoBDLibros/app/src/main/res/layout/activity_main.xml" value="0.6825" />
+        <entry key="..\:/Users/DAM2A-06/DavidCanoBDLibros/app/src/main/res/layout/activity_ver_libros.xml" value="0.2765625" />
+        <entry key="..\:/Users/DAM2A-06/DavidCanoBDLibros/app/src/main/res/layout/presentacion.xml" value="0.6825" />
       </map>
     </option>
   </component>

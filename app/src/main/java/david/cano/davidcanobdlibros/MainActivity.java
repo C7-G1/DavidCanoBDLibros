@@ -3,6 +3,7 @@ package david.cano.davidcanobdlibros;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -85,15 +86,16 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase bd;
 
         bd = crearBD.getWritableDatabase();
-        if (edcodigo.getText().toString().equals("") || edtitulo.getText().toString().equals("") ||
-                edautor.getText().toString().equals("")) {
+        if (edcodigo.getText().toString().equals("") /*||
+                edtitulo.getText().toString().equals("") ||
+                edautor.getText().toString().equals(""))*/ ){
             verMensajeToast("Cajas vacías, debes introducir los datos");
         } else {
             String cod = edcodigo.getText().toString();
-            String tit = edtitulo.getText().toString();
-            String aut = edautor.getText().toString();
+            /*String tit = edtitulo.getText().toString();
+            String aut = edautor.getText().toString();*/
             try {
-                bd.execSQL("DELETE INTO LIBROS VALUES(" + cod + ",'" + tit + ",'" + aut + "'); ");
+                bd.execSQL("DELETE FROM libros WHERE codigo ='"+cod+"'");
                 verMensajeToast("Datos borrados");
             } catch (Exception sqlex) {
                 verMensajeToast(sqlex.getMessage());
@@ -102,5 +104,12 @@ public class MainActivity extends AppCompatActivity {
             crearBD.close();
         }
     }
+
+    public void listarLibros(View v) {
+        Intent i = new Intent(this, verLibros.class);
+        startActivity(i);
+    }
+
+
 }
 
