@@ -20,11 +20,13 @@ public class verLibros extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_libros);
         crearBD = new CrearBD(this);
-        listaLibros = findViewById(R.id.lvLibros);
-        consultarLibros();
+
+        listaLibros = findViewById(R.id.lvListaLibros);
+        listarLibros();
+
     }
 
-    public void consultarLibros() {
+    public void listarLibros() {
         List<String> items = new ArrayList<String>();
         SQLiteDatabase bd = crearBD.getReadableDatabase();
         Cursor contenido = bd.rawQuery("select * from libros", null);

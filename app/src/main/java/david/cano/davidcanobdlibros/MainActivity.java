@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         crearBD = new CrearBD(this);
+
         edcodigo=findViewById(R.id.etCodigo);
         edtitulo=findViewById(R.id.etTitulo);
         edautor=findViewById(R.id.etAutor);
@@ -86,16 +87,13 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase bd;
 
         bd = crearBD.getWritableDatabase();
-        if (edcodigo.getText().toString().equals("") /*||
-                edtitulo.getText().toString().equals("") ||
-                edautor.getText().toString().equals(""))*/ ){
+        if (edcodigo.getText().toString().equals("") ){
             verMensajeToast("Cajas vacías, debes introducir los datos");
         } else {
             String cod = edcodigo.getText().toString();
-            /*String tit = edtitulo.getText().toString();
-            String aut = edautor.getText().toString();*/
             try {
                 bd.execSQL("DELETE FROM libros WHERE codigo ='"+cod+"'");
+
                 verMensajeToast("Datos borrados");
             } catch (Exception sqlex) {
                 verMensajeToast(sqlex.getMessage());
