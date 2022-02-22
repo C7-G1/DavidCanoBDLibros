@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
     EditText edtitulo;
     EditText edautor;
     CrearBD crearBD;
-
+    MediaPlayer mp=new MediaPlayer();
+    MediaPlayer mp2=new MediaPlayer();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         bd.execSQL("INSERT INTO libros VALUES(4,'El Principe de la Niebla', 'Carlos Ruiz Zafón');");
         bd.close();*/
 
+        mp= MediaPlayer.create(this,R.raw.lotr);
+        mp.start();
     }
 
 
@@ -60,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
             String cod = edcodigo.getText().toString();
             String tit = edtitulo.getText().toString();
             String aut = edautor.getText().toString();
+            mp.pause();
+            mp2= MediaPlayer.create(this,R.raw.pokemon);
+            mp2.start();
             try {
                 bd.execSQL("INSERT INTO libros VALUES('" + cod + "','" + tit + "','" + aut + "');");
                 verMensajeToast("Datos insertados");
@@ -68,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         bd.close();
+        mp=MediaPlayer.create(this,R.raw.lotr);
+        mp.start();
         limpiarCajas();
     }
 
@@ -101,6 +110,11 @@ public class MainActivity extends AppCompatActivity {
             limpiarCajas();
             crearBD.close();
         }
+        mp.pause();
+        mp2= MediaPlayer.create(this,R.raw.gta5);
+        mp2.start();
+        mp=MediaPlayer.create(this,R.raw.lotr);
+        mp.start();
     }
 
     public void listarLibros(View v) {

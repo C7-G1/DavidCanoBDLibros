@@ -29,13 +29,13 @@ public class verLibros extends AppCompatActivity {
     public void listarLibros() {
         List<String> items = new ArrayList<String>();
         SQLiteDatabase bd = crearBD.getReadableDatabase();
-        Cursor contenido = bd.rawQuery("select * from libros", null);
+        Cursor contenido = bd.rawQuery("select * from libros order by codigo", null);
         int i = 0;
         String cad = "";
         //Volcamos el contenido del cursor en el arrayList
         while (contenido.moveToNext() && i < contenido.getCount()) {
             //concatena los datos de cada libro en un String cad
-            cad = "" + contenido.getString(0) + " " + contenido.getString(1) + " " + contenido.getString(2) + "\n";
+            cad = "Id: " + contenido.getString(0) +"\n"+ " Nombre:  " + contenido.getString(1) +"\n"+ " Autor:  " + contenido.getString(2) + "\n";
             items.add(cad);
             i++;
         }
