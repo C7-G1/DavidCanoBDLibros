@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase bd;
         bd = crearBD.getReadableDatabase();
         Cursor contenido = bd.rawQuery("select * from libros where codigo='" + cod + "';", null);
+        if (edcodigo.getText().toString().equals("") || edtitulo.getText().toString().equals("") ||
+                edautor.getText().toString().equals("")) {
+            verMensajeToast("Cajas vacías, debes introducir el id a consultar");
+        }
         if (contenido.moveToNext()) {
             edtitulo.setText(contenido.getString(1));
             edautor.setText(contenido.getString(2));
@@ -67,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
             mp.pause();
             mp2= MediaPlayer.create(this,R.raw.pokemon);
             mp2.start();
+            mp=MediaPlayer.create(this,R.raw.lotr);
+            mp.start();
             try {
                 bd.execSQL("INSERT INTO libros VALUES('" + cod + "','" + tit + "','" + aut + "');");
                 verMensajeToast("Datos insertados");
@@ -75,8 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         bd.close();
-        mp=MediaPlayer.create(this,R.raw.lotr);
-        mp.start();
+
         limpiarCajas();
     }
 
@@ -97,24 +102,25 @@ public class MainActivity extends AppCompatActivity {
 
         bd = crearBD.getWritableDatabase();
         if (edcodigo.getText().toString().equals("") ){
-            verMensajeToast("Cajas vacías, debes introducir los datos");
+            verMensajeToast("Cajas vacías, debes introducir el id a borrar");
         } else {
             String cod = edcodigo.getText().toString();
             try {
                 bd.execSQL("DELETE FROM libros WHERE codigo ='"+cod+"'");
 
                 verMensajeToast("Datos borrados");
+                mp.pause();
+                mp2= MediaPlayer.create(this,R.raw.gta5);
+                mp2.start();
+                mp=MediaPlayer.create(this,R.raw.lotr);
+                mp.start();
             } catch (Exception sqlex) {
                 verMensajeToast(sqlex.getMessage());
             }
             limpiarCajas();
             crearBD.close();
         }
-        mp.pause();
-        mp2= MediaPlayer.create(this,R.raw.gta5);
-        mp2.start();
-        mp=MediaPlayer.create(this,R.raw.lotr);
-        mp.start();
+
     }
 
     public void listarLibros(View v) {
