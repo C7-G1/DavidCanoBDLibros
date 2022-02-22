@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor contenido = bd.rawQuery("select * from libros where codigo='" + cod + "';", null);
         if (edcodigo.getText().toString().equals("") || edtitulo.getText().toString().equals("") ||
                 edautor.getText().toString().equals("")) {
-            verMensajeToast("Cajas vacías, debes introducir el id a consultar");
+            verMensajeToast("Cajas vacías, debes introducir el código a consultar");
         }
         if (contenido.moveToNext()) {
             edtitulo.setText(contenido.getString(1));
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         bd = crearBD.getWritableDatabase();
         if (edcodigo.getText().toString().equals("") ){
-            verMensajeToast("Cajas vacías, debes introducir el id a borrar");
+            verMensajeToast("Cajas vacías, debes introducir el código a borrar");
         } else {
             String cod = edcodigo.getText().toString();
             try {
